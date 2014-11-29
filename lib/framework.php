@@ -6,3 +6,53 @@
  */
 
 include( 'inc/themehookalliance/tha-theme-hooks.php' ); //Include Theme Hook Alliance code
+
+add_action( 'wpt_init', 'wpt_add_theme_support' );
+/**
+ * Activate Default Theme Features
+ *
+ * @since 1.0.0
+ */
+function wpt_add_theme_support() {
+
+}
+
+add_action( 'wpt_init', 'wpt_add_post_type_support' );
+/**
+ * Add layout support to post types
+ *@since 1.0.0
+ */
+function wpt_add_post_type_support() {
+    add_post_type_support( 'post', array() );
+    add_post_type_support( 'page', array() );
+}
+
+add_action( 'wpt_init', 'wpt_constants' );
+/**
+ * Define theme constants
+ *
+ * @since 1.0.0
+ *
+ */
+function wpt_constants() {
+    define( 'PARENT_DIR', get_template_directory() );
+    define( 'TEMPLATES_DIR', trailingslashit( PARENT_DIR ) . 'lib/templates' );
+    define( 'INC_DIR', trailingslashit( PARENT_DIR ) . 'lib/inc' );
+}
+add_action( 'wpt_framework', 'wpt_load_framework' );
+/**
+ * Start the engine
+ *
+ * @since 1.0.0
+ *
+ */
+function wpt_load_framework() {
+  require_once( trailingslashit( PARENT_DIR ) . 'lib/wptemple.php');
+  require_once( trailingslashit( TEMPLATES_DIR ) . 'header.php' );
+  require_once( trailingslashit( TEMPLATES_DIR ) . 'footer.php' );
+}
+//*Run the init hook
+do_action( 'wpt_init');
+
+//* Run load framework hook
+do_action( 'wpt_framework' );

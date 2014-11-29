@@ -21,3 +21,4 @@
 
 <body <?php body_class(); ?>>
 <?php tha_body_top(); ?>
+<p> Hello World</p>
