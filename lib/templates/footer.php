@@ -1,19 +1,5 @@
 <?php
-/**
- * Template for displaying the footer
- *
- */
-?>
-
-<?php tha_footer_before(); ?>
-<footer>
-    <?php tha_footer_top(); ?>
-
-    <?php tha_footer_bottom(); ?>
-</footer>
-<?php tha_footer_after(); ?>
-<?php tha_body_bottom(); ?>
-
-<?php wp_footer(); ?>
-</body>
-</html>
+add_action( 'wpt_footer', 'wpt_do_footer' );
+function wpt_do_footer() {
+  echo "Do footer stuff here";
+}

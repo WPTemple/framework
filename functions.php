@@ -1,4 +1,3 @@
 <?php
 
-require_once( trailingslashit(get_template_directory() ) . 'lib/framework.php' );
-
+require_once( dirname( __FILE__ ) . '/lib/framework.php' );

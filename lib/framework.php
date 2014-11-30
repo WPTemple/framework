@@ -35,9 +35,9 @@ add_action( 'wpt_init', 'wpt_constants' );
  *
  */
 function wpt_constants() {
-    define( 'PARENT_DIR', get_template_directory() );
-    define( 'TEMPLATES_DIR', trailingslashit( PARENT_DIR ) . 'lib/templates' );
-    define( 'INC_DIR', trailingslashit( PARENT_DIR ) . 'lib/inc' );
+    define( 'LIB_DIR', dirname( __FILE__ ) );
+    define( 'TEMPLATES_DIR', LIB_DIR. '/templates' );
+    define( 'INC_DIR', LIB_DIR . '/inc' );
 }
 add_action( 'wpt_framework', 'wpt_load_framework' );
 /**
@@ -47,9 +47,9 @@ add_action( 'wpt_framework', 'wpt_load_framework' );
  *
  */
 function wpt_load_framework() {
-  require_once( trailingslashit( PARENT_DIR ) . 'lib/wptemple.php');
-  require_once( trailingslashit( TEMPLATES_DIR ) . 'header.php' );
-  require_once( trailingslashit( TEMPLATES_DIR ) . 'footer.php' );
+  require_once( LIB_DIR . '/wptemple.php');
+  require_once( LIB_DIR . '/templates/header.php');
+  require_once( LIB_DIR . '/templates/footer.php');
 }
 //*Run the init hook
 do_action( 'wpt_init');
