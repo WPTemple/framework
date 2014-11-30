@@ -50,6 +50,7 @@ function wpt_load_framework() {
   require_once( LIB_DIR . '/wptemple.php');
   require_once( LIB_DIR . '/templates/header.php');
   require_once( LIB_DIR . '/templates/footer.php');
+  require_once( LIB_DIR . '/css/enqueue-styles.php');
 }
 //*Run the init hook
 do_action( 'wpt_init');
